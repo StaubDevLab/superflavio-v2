@@ -1,0 +1,253 @@
+import type { Service } from "@/lib/directus"
+
+export const mockServices: Service[] = [
+    {
+        id: "1",
+        slug: "plomberie",
+        title: "Plomberie",
+        description:
+            "Nous intervenons pour tous vos travaux de plomberie : installation, réparation et entretien. Robinetterie, sanitaires, tuyauterie, nous sommes là pour résoudre tous vos problèmes de plomberie avec professionnalisme et rapidité. Notre équipe qualifiée dispose de tout l'équipement nécessaire pour diagnostiquer et résoudre efficacement vos problèmes.",
+        short_description: "Installation, réparation et entretien de vos équipements sanitaires et tuyauterie",
+        icon: "droplets",
+        image: "/plumber-fixing-sink-pipes-professional.jpg",
+        features: [
+            "Installation sanitaires complets",
+            "Réparation fuites et infiltrations",
+            "Débouchage canalisations",
+            "Remplacement robinetterie",
+            "Mise aux normes installations",
+            "Détection de fuites",
+        ],
+        price_from: 60,
+        duration_estimate: "1-3 heures",
+        warranty: "Garantie 2 ans pièces et main d'œuvre",
+        areas_served: ["Paris", "Île-de-France", "92", "93", "94"],
+        certifications: ["RGE", "Qualibat"],
+        faq: [
+            {
+                question: "Combien coûte une intervention plomberie ?",
+                answer:
+                    "Le tarif dépend de la nature de l'intervention. Comptez à partir de 60€ pour un dépannage simple. Nous établissons toujours un devis gratuit avant intervention.",
+            },
+            {
+                question: "Intervenez-vous en urgence ?",
+                answer: "Oui, nous proposons un service d'urgence 7j/7 pour les fuites d'eau et dégâts des eaux.",
+            },
+        ],
+        gallery: [],
+        is_featured: true,
+        is_emergency: false,
+        sort: 1,
+        status: "published",
+        date_created: "2024-01-01",
+        date_updated: "2024-01-01",
+    },
+    {
+        id: "2",
+        slug: "renovation",
+        title: "Rénovation",
+        description:
+            "Transformez votre intérieur avec nos services de rénovation complète. Salle de bain, cuisine, nous prenons en charge votre projet de A à Z pour un résultat à la hauteur de vos attentes. De la conception à la réalisation, notre équipe vous accompagne pour créer l'espace de vos rêves.",
+        short_description: "Rénovation complète de vos espaces de vie : salle de bain, cuisine et plus",
+        icon: "hammer",
+        image: "/home-renovation-construction-worker-modern-interio.jpg",
+        features: [
+            "Rénovation salle de bain clé en main",
+            "Rénovation cuisine complète",
+            "Pose de carrelage et faïence",
+            "Peinture et finitions",
+            "Aménagement sur mesure",
+            "Création de rangements",
+        ],
+        price_from: 500,
+        duration_estimate: "1-4 semaines selon projet",
+        warranty: "Garantie décennale",
+        areas_served: ["Paris", "Île-de-France"],
+        certifications: ["Qualibat", "Artisan de confiance"],
+        faq: [
+            {
+                question: "Combien de temps dure une rénovation de salle de bain ?",
+                answer:
+                    "Une rénovation complète de salle de bain prend généralement entre 1 et 2 semaines selon l'ampleur des travaux.",
+            },
+            {
+                question: "Fournissez-vous les matériaux ?",
+                answer:
+                    "Oui, nous pouvons nous occuper de l'approvisionnement complet ou travailler avec les matériaux de votre choix.",
+            },
+        ],
+        gallery: [],
+        is_featured: true,
+        is_emergency: false,
+        sort: 2,
+        status: "published",
+        date_created: "2024-01-01",
+        date_updated: "2024-01-01",
+    },
+    {
+        id: "3",
+        slug: "depannage",
+        title: "Dépannage Urgent",
+        description:
+            "Une urgence plomberie ? Super Flavio intervient rapidement pour tous vos dépannages urgents. Fuites, bouchons, pannes, nous sommes disponibles 7j/7 pour résoudre vos problèmes dans les plus brefs délais. Notre équipe mobile est équipée pour intervenir immédiatement.",
+        short_description: "Intervention rapide 7j/7 pour toutes vos urgences plomberie et dégâts des eaux",
+        icon: "wrench",
+        image: "/emergency-plumber-repair-water-leak-urgent.jpg",
+        features: [
+            "Intervention sous 2 heures",
+            "Disponible 7j/7 et jours fériés",
+            "Diagnostic gratuit sur place",
+            "Devis immédiat transparent",
+            "Réparation immédiate si possible",
+            "Gestion dégâts des eaux",
+        ],
+        price_from: 80,
+        duration_estimate: "Intervention sous 2h",
+        warranty: "Garantie intervention",
+        areas_served: ["Paris", "Petite couronne", "92", "93", "94"],
+        certifications: ["Agrément assurances"],
+        faq: [
+            {
+                question: "Quel est le délai d'intervention en urgence ?",
+                answer: "Nous nous engageons à intervenir sous 2 heures maximum dans Paris et la petite couronne.",
+            },
+            {
+                question: "Y a-t-il des frais de déplacement ?",
+                answer:
+                    "Les frais de déplacement sont inclus dans le devis. Pas de surprise, le prix annoncé est le prix final.",
+            },
+        ],
+        gallery: [],
+        is_featured: true,
+        is_emergency: true,
+        sort: 3,
+        status: "published",
+        date_created: "2024-01-01",
+        date_updated: "2024-01-01",
+    },
+    {
+        id: "4",
+        slug: "chauffage",
+        title: "Chauffage",
+        description:
+            "Installation et entretien de vos systèmes de chauffage. Chaudière, radiateurs, plancher chauffant, nous vous conseillons et intervenons pour optimiser votre confort thermique tout au long de l'année. Profitez de notre expertise pour des économies d'énergie durables.",
+        short_description: "Installation, entretien et dépannage de tous vos systèmes de chauffage",
+        icon: "flame",
+        image: "/heating-system-boiler-installation-technician.jpg",
+        features: [
+            "Installation chaudière gaz/fioul",
+            "Entretien annuel obligatoire",
+            "Remplacement radiateurs",
+            "Pose plancher chauffant",
+            "Dépannage et réparation",
+            "Conseil économies d'énergie",
+        ],
+        price_from: 90,
+        duration_estimate: "2-4 heures (entretien) / 1-2 jours (installation)",
+        warranty: "Garantie constructeur + 2 ans main d'œuvre",
+        areas_served: ["Paris", "Île-de-France"],
+        certifications: ["RGE", "Qualigaz", "PG"],
+        faq: [
+            {
+                question: "À quelle fréquence faut-il entretenir sa chaudière ?",
+                answer:
+                    "L'entretien annuel est obligatoire pour les chaudières gaz et fioul. Il garantit sécurité et performance optimale.",
+            },
+            {
+                question: "Puis-je bénéficier d'aides pour le remplacement de ma chaudière ?",
+                answer: "Oui, en tant qu'artisan RGE, nos travaux sont éligibles aux aides MaPrimeRénov' et CEE.",
+            },
+        ],
+        gallery: [],
+        is_featured: true,
+        is_emergency: false,
+        sort: 4,
+        status: "published",
+        date_created: "2024-01-01",
+        date_updated: "2024-01-01",
+    },
+    {
+        id: "5",
+        slug: "salle-de-bain",
+        title: "Salle de Bain",
+        description:
+            "Création et rénovation de salle de bain sur mesure. Du concept à la réalisation, nous transformons votre salle de bain en un espace moderne, fonctionnel et élégant. Notre approche clé en main vous garantit un projet sans stress du début à la fin.",
+        short_description: "Création et rénovation de salle de bain sur mesure, du design à la réalisation",
+        icon: "bath",
+        image: "/modern-luxury-bathroom-renovation-white-tiles.jpg",
+        features: [
+            "Design personnalisé 3D",
+            "Douche italienne sur mesure",
+            "Installation baignoire balnéo",
+            "Meuble vasque design",
+            "Accessibilité PMR",
+            "Carrelage haut de gamme",
+        ],
+        price_from: 2000,
+        duration_estimate: "1-3 semaines",
+        warranty: "Garantie décennale",
+        areas_served: ["Paris", "Île-de-France"],
+        certifications: ["Qualibat", "Handibat"],
+        faq: [
+            {
+                question: "Proposez-vous des visualisations 3D ?",
+                answer:
+                    "Oui, nous réalisons des plans 3D pour vous permettre de visualiser votre future salle de bain avant les travaux.",
+            },
+            {
+                question: "Pouvez-vous adapter une salle de bain pour PMR ?",
+                answer:
+                    "Absolument, nous sommes certifiés Handibat et spécialisés dans l'adaptation des salles de bain pour les personnes à mobilité réduite.",
+            },
+        ],
+        gallery: [],
+        is_featured: false,
+        is_emergency: false,
+        sort: 5,
+        status: "published",
+        date_created: "2024-01-01",
+        date_updated: "2024-01-01",
+    },
+    {
+        id: "6",
+        slug: "cuisine",
+        title: "Cuisine",
+        description:
+            "Aménagement et rénovation de cuisine. Plomberie, raccordements, nous intervenons pour rendre votre cuisine fonctionnelle et adaptée à vos besoins quotidiens. De l'installation de l'évier aux raccordements électroménagers, nous gérons tous les aspects techniques.",
+        short_description: "Aménagement, raccordements et rénovation complète pour votre cuisine",
+        icon: "cooking-pot",
+        image: "/modern-kitchen-renovation-plumbing-installation.jpg",
+        features: [
+            "Raccordement électroménager",
+            "Installation évier et robinetterie",
+            "Arrivée et évacuation d'eau",
+            "Raccordement gaz sécurisé",
+            "Rénovation complète",
+            "Pose plan de travail",
+        ],
+        price_from: 150,
+        duration_estimate: "1 jour - 2 semaines selon travaux",
+        warranty: "Garantie 2 ans",
+        areas_served: ["Paris", "Île-de-France"],
+        certifications: ["Qualigaz", "Qualibat"],
+        faq: [
+            {
+                question: "Pouvez-vous déplacer un évier de cuisine ?",
+                answer:
+                    "Oui, nous pouvons déplacer votre évier en modifiant les arrivées et évacuations d'eau selon la configuration de votre cuisine.",
+            },
+            {
+                question: "Intervenez-vous sur les raccordements gaz ?",
+                answer:
+                    "Oui, nous sommes certifiés Qualigaz et habilités à réaliser tous les raccordements gaz en toute sécurité.",
+            },
+        ],
+        gallery: [],
+        is_featured: false,
+        is_emergency: false,
+        sort: 6,
+        status: "published",
+        date_created: "2024-01-01",
+        date_updated: "2024-01-01",
+    },
+]
