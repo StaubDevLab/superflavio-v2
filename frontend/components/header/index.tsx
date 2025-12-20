@@ -8,6 +8,7 @@ import { Menu, X, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { createPortal } from "react-dom"
+import { GeneralInfos } from "@/lib/general_infos"
 
 const navigation = [
     { name: "Accueil", href: "/" },
@@ -17,9 +18,11 @@ const navigation = [
 ]
 
 function MobileMenu({
+    generalInfos,
     isOpen,
     onClose,
 }: {
+    generalInfos: GeneralInfos
     isOpen: boolean
     onClose: () => void
 }) {
@@ -83,9 +86,9 @@ function MobileMenu({
                             ))}
                         </div>
                         <div className="py-6 space-y-4">
-                            <a href="tel:+33600000000" className="flex items-center gap-2 text-base font-medium text-foreground">
+                            <a href={`tel:${generalInfos.phone_number.replace(/\s/g, "")}`} className="flex items-center gap-2 text-base font-medium text-foreground">
                                 <Phone className="h-5 w-5 text-primary" />
-                                06 00 00 00 00
+                                {generalInfos.phone_number}
                             </a>
                             <Button asChild className="w-full">
                                 <Link href="#contact" onClick={onClose}>
@@ -101,7 +104,7 @@ function MobileMenu({
     )
 }
 
-export function Header() {
+export function Header({ generalInfos }: { generalInfos: GeneralInfos }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
     const pathname = usePathname()
@@ -179,14 +182,14 @@ export function Header() {
 
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-4">
                         <a
-                            href="tel:+33600000000"
+                            href={`tel:${generalInfos.phone_number.replace(/\s/g, "")}`}
                             className={cn(
                                 "flex items-center gap-2 text-sm font-medium transition-colors",
                                 showTransparent ? "text-white/80 hover:text-white" : "text-muted-foreground hover:text-foreground",
                             )}
                         >
                             <Phone className="h-4 w-4" />
-                            06 00 00 00 00
+                            {generalInfos.phone_number}
                         </a>
                         <Button asChild>
                             <Link href="#contact">Devis gratuit</Link>
@@ -195,7 +198,7 @@ export function Header() {
                 </nav>
             </header>
 
-            <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+            <MobileMenu generalInfos={generalInfos} isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
         </>
     )
 }

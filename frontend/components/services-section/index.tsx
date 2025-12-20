@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ServiceCard } from "@/components/service-card"
 import { ArrowRight } from "lucide-react"
-import type { Service } from "@/lib/directus"
+import type { Service } from "@/lib/services"
 
 interface ServicesSectionProps {
     services: Service[]

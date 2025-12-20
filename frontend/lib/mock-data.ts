@@ -1,4 +1,4 @@
-import type { Service } from "@/lib/directus"
+import type { Service } from "@/lib/services"
 
 export const mockServices: Service[] = [
     {

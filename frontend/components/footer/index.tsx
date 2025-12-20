@@ -1,6 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Phone, Mail, MapPin } from "lucide-react"
+import { GeneralInfos } from "@/lib/general_infos"
+import { Service } from "@/lib/services"
 
 const navigation = {
     services: [
@@ -16,7 +18,7 @@ const navigation = {
     ],
 }
 
-export function Footer() {
+export function Footer({ generalInfos, services }: { generalInfos: GeneralInfos, services: Service[] }) {
     return (
         <footer className="bg-foreground text-background">
             <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
@@ -42,10 +44,10 @@ export function Footer() {
                     <div>
                         <h3 className="font-semibold mb-4">Services</h3>
                         <ul className="space-y-3">
-                            {navigation.services.map((item) => (
-                                <li key={item.name}>
-                                    <Link href={item.href} className="text-sm text-background/70 hover:text-background transition-colors">
-                                        {item.name}
+                            {services.map((item) => (
+                                <li key={item.id}>
+                                    <Link href={`/services/${item.slug}`} className="text-sm text-background/70 hover:text-background transition-colors">
+                                        {item.title}
                                     </Link>
                                 </li>
                             ))}
@@ -72,25 +74,25 @@ export function Footer() {
                         <ul className="space-y-3">
                             <li>
                                 <a
-                                    href="tel:+33600000000"
+                                    href={`tel:${generalInfos.phone_number.replace(/\s/g, "")}`}
                                     className="flex items-center gap-2 text-sm text-background/70 hover:text-background transition-colors"
                                 >
                                     <Phone className="h-4 w-4" />
-                                    06 00 00 00 00
+                                    {generalInfos.phone_number}
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="mailto:contact@superflavio.fr"
+                                    href={`mailto:${generalInfos.email}`}
                                     className="flex items-center gap-2 text-sm text-background/70 hover:text-background transition-colors"
                                 >
                                     <Mail className="h-4 w-4" />
-                                    contact@superflavio.fr
+                                    {generalInfos.email}
                                 </a>
                             </li>
                             <li className="flex items-start gap-2 text-sm text-background/70">
                                 <MapPin className="h-4 w-4 mt-0.5" />
-                                <span>Paris et environs (30km)</span>
+                                <span>{generalInfos.localisation}</span>
                             </li>
                         </ul>
                     </div>

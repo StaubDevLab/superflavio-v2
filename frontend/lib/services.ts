@@ -1,5 +1,6 @@
 // Configuration Directus API
-const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055"
+const DIRECTUS_URL_SERVER = "http://directus:8055"
+const DIRECTUS_URL_CLIENT = "http://superflavio-api.local"
 
 // Types pour les services Directus
 export interface Service {
@@ -37,7 +38,7 @@ export interface SingleServiceResponse {
 // Client Directus
 export async function getServices(): Promise<Service[]> {
     try {
-        const res = await fetch(`${DIRECTUS_URL}/items/services?filter[status][_eq]=published&sort=sort`, {
+        const res = await fetch(`${DIRECTUS_URL_SERVER}/items/services?fields=*`, {
             next: { revalidate: 60 }, // Cache pendant 60 secondes
         })
 
@@ -56,7 +57,7 @@ export async function getServices(): Promise<Service[]> {
 export async function getFeaturedServices(): Promise<Service[]> {
     try {
         const res = await fetch(
-            `${DIRECTUS_URL}/items/services?filter[status][_eq]=published&filter[is_featured][_eq]=true&sort=sort&limit=6`,
+            `${DIRECTUS_URL_SERVER}/items/services?filter[status][_eq]=published&filter[is_featured][_eq]=true&sort=sort&limit=6`,
             {
                 next: { revalidate: 60 },
             },
@@ -77,7 +78,7 @@ export async function getFeaturedServices(): Promise<Service[]> {
 export async function getServiceBySlug(slug: string): Promise<Service | null> {
     try {
         const res = await fetch(
-            `${DIRECTUS_URL}/items/services?filter[slug][_eq]=${slug}&filter[status][_eq]=published&limit=1`,
+            `${DIRECTUS_URL_SERVER}/items/services?filter[slug][_eq]=${slug}&filter[status][_eq]=published&limit=1`,
             {
                 next: { revalidate: 60 },
             },
@@ -97,5 +98,5 @@ export async function getServiceBySlug(slug: string): Promise<Service | null> {
 
 export function getDirectusImageUrl(imageId: string | null): string {
     if (!imageId) return "/service-artisan.jpg"
-    return `${DIRECTUS_URL}/assets/${imageId}`
+    return `${DIRECTUS_URL_CLIENT}/assets/${imageId}`
 }

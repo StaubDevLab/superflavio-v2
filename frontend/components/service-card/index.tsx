@@ -5,7 +5,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Droplets, Hammer, Wrench, Flame, Bath, CookingPot, Clock, CheckCircle2 } from "lucide-react"
-import type { Service } from "@/lib/directus"
+import type { Service } from "@/lib/services"
+import { getDirectusImageUrl } from "@/lib/services"
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     droplets: Droplets,
@@ -29,7 +30,7 @@ export function ServiceCard({ service, variant = "default" }: ServiceCardProps) 
             <Card className="group relative overflow-hidden border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl h-full flex flex-col p-0">
                 <div className="relative h-56 w-full overflow-hidden">
                     <Image
-                        src={service.image || "/placeholder.svg?height=224&width=400&query=artisan service"}
+                        src={service.image ? getDirectusImageUrl(service.image) : "/placeholder.svg?height=224&width=400&query=artisan service"}
                         alt={service.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -94,6 +95,7 @@ export function ServiceCard({ service, variant = "default" }: ServiceCardProps) 
                         src={service.image || "/placeholder.svg?height=192&width=400&query=artisan service"}
                         alt={service.title}
                         fill
+                        unoptimized
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />

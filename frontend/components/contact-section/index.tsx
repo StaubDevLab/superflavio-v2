@@ -9,16 +9,37 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react"
+import { GeneralInfos } from "@/lib/general_infos"
 
-const contactInfo = [
-    { icon: Phone, label: "Téléphone", value: "06 00 00 00 00", href: "tel:+33600000000" },
-    { icon: Mail, label: "Email", value: "contact@superflavio.fr", href: "mailto:contact@superflavio.fr" },
-    { icon: MapPin, label: "Zone d'intervention", value: "Paris et environs (30km)" },
-    { icon: Clock, label: "Disponibilité", value: "Lun-Sam: 8h-19h • Urgences 7j/7" },
-]
 
-export function ContactSection() {
+
+export function ContactSection({ generalInfos }: { generalInfos: GeneralInfos }) {
     const [isSubmitting, setIsSubmitting] = useState(false)
+
+    const contactInfo = [
+        {
+            icon: Phone,
+            label: "Téléphone",
+            value: generalInfos.phone_number,
+            href: `tel:${generalInfos.phone_number.replace(/\s/g, "")}`,
+        },
+        {
+            icon: Mail,
+            label: "Email",
+            value: generalInfos.email,
+            href: `mailto:${generalInfos.email}`,
+        },
+        {
+            icon: MapPin,
+            label: "Zone d'intervention",
+            value: generalInfos.localisation,
+        },
+        {
+            icon: Clock,
+            label: "Disponibilité",
+            value: "Lun-Sam: 8h-19h • Urgences 7j/7",
+        },
+    ]
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -79,7 +100,7 @@ export function ContactSection() {
                                     Pour toute urgence (fuite d'eau, dégât des eaux...), appelez-nous directement. Nous intervenons 7j/7.
                                 </p>
                                 <Button asChild>
-                                    <a href="tel:+33600000000">
+                                    <a href={`tel:${generalInfos.phone_number.replace(/\s/g, "")}`}>
                                         <Phone className="mr-2 h-4 w-4" />
                                         Appeler maintenant
                                     </a>
@@ -110,7 +131,7 @@ export function ContactSection() {
 
                                 <div className="space-y-2">
                                     <Label htmlFor="phone">Téléphone</Label>
-                                    <Input id="phone" type="tel" placeholder="06 00 00 00 00" required />
+                                    <Input id="phone" type="tel" placeholder={generalInfos.phone_number} required />
                                 </div>
 
                                 <div className="space-y-2">
