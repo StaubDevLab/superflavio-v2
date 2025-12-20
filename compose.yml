@@ -46,6 +46,11 @@ services:
       DB_USER: ${DIRECTUS_DB_USER}
       DB_PASSWORD: ${DIRECTUS_DB_PASSWORD}
       PUBLIC_URL: ${DIRECTUS_PUBLIC_URL}
+      LOG_LEVEL: "info"
+      LOG_STYLE: "raw"
+      WEBSOCKETS_ENABLED: "true"
+      WEBSOCKETS_LOGS_ENABLED: "true"
+      ACTIVITY_RETENTION: "90d"
     depends_on:
       - db
     volumes:
@@ -63,6 +68,11 @@ services:
       - frontend
       - directus
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m" # Limite la taille des fichiers
+        max-file: "5" # Garde les 5 derniers fichiers
 
 volumes:
   directus_data:
